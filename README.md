@@ -27,7 +27,11 @@ song.get('title') // "Lucy In The Sky With Diamonds"
 song.get('composer.name'); // undefined
 ```
 
+song.set("album.title", "Yellow Submarine");
+
+
 ## Supported Methods ##
 - get
 - escape
 - has
+- set
