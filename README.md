@@ -1,4 +1,4 @@
-# Backbone Dotattr [![Build Status](https://secure.travis-ci.org/amccloud/backbone-dotattr.png)](http://travis-ci.org/amccloud/backbone-dotattr]) #
+# Backbone Dotattr [![Build Status](https://secure.travis-ci.org/dolbyzerr/backbone-dotattr.png?branch=master)](https://travis-ci.org/dolbyzerr/backbone-dotattr)#
 Access deep Backbone.js model attributes with dot-syntax.
 
 ## Example ##
@@ -25,9 +25,10 @@ song.get('title') // "Lucy In The Sky With Diamonds"
 
 // Non-existent attributes will not throw JS errors
 song.get('composer.name'); // undefined
-```
 
+// Setting nested attribute
 song.set("album.title", "Yellow Submarine");
+```
 
 
 ## Supported Methods ##
