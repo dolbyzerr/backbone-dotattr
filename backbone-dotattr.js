@@ -24,11 +24,16 @@
                         po = po.get(key);
                     });
                     if(po instanceof Backbone.Model){
-                        po.on("change", function(){
-                            var args = ["change:" + key.join(":") +":"+ setProperty].concat(_.toArray(arguments));
-                            this.trigger.apply(this, args);
-                        }, this)
-                        return po.set(setProperty, value, options);    
+                        if(!po.isBinded){
+                            po.isBinded = true;
+                            po.on("change", function(){
+                                var originalArgs = _.toArray(arguments);
+                                originalArgs.splice(1,0, po.get(setProperty));
+                                var args = ["change:" + key.join(".") +"."+ setProperty].concat(originalArgs);
+                                this.trigger.apply(this, args);
+                            }, this)
+                        }
+                        return po.set(setProperty, value, options);
                     }else{
                         return po[setProperty] = value;
                     }
